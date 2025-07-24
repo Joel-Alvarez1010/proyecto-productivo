@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Curso - Redes Avanzadas y Seguridad | JYB Netlearn</title>
+  <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+
+  <nav>
+    <ul class="navbar">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="cursos.html">Cursos</a></li>
+      <li><a href="acerca-de-nosotros.html">Acerca de Nosotros</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>🛡️Curso 3: Redes Avanzadas y Seguridad</h1>
+    <h2>Plataforma Educativa JYB Netlearn</h2>
+  </header>
+
+  <section>
+    <h2>Bienvenida</h2>
+    <p>
+      ¡Bienvenido al tercer curso! Aquí explorarás el funcionamiento interno de redes más complejas, y aprenderás técnicas de protección de datos y dispositivos frente a amenazas cibernéticas. Este curso es esencial para quien aspira a ser administrador de redes o especialista en ciberseguridad. Vamos a profundizar en conceptos clave para fortalecer redes modernas, eficientes y seguras.
+    </p>
+  </section>
+   
+       <div class="contenido-video">
+      <video controls>
+        <source src="Redes.mp4.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de video.
+      </video>
+
+
+  <section>
+    <h2>Módulo 1: Topologías de red avanzadas</h2>
+    <p><strong>Pregunta:</strong> ¿Cuáles son las topologías de red avanzadas y cómo funcionan?</p>
+    <p><strong>Respuesta:</strong> Las topologías avanzadas combinan estructuras simples para mejorar la escalabilidad, rendimiento y tolerancia a fallos. Entre las más comunes están:</p>
+    <ul>
+      <li><strong>Topología en malla:</strong> Cada nodo se conecta con varios otros. Esto mejora la redundancia y reduce los puntos únicos de fallo.</li>
+      <li><strong>Topología híbrida:</strong> Es una combinación de varias topologías (estrella, bus, anillo). Es común en redes empresariales grandes.</li>
+      <li><strong>Topología en árbol:</strong> Conecta varios nodos jerárquicamente. Se utiliza en redes estructuradas por departamentos u oficinas.</li>
+    </ul>
+    <p>Estas topologías permiten gestionar tráfico intensivo, asegurar disponibilidad y distribuir cargas de forma eficiente.</p>
+  </section>
+
+  <section>
+    <h2>Módulo 2: VLANs y segmentación de red</h2>
+    <p><strong>Pregunta:</strong> ¿Qué es una VLAN y para qué sirve?</p>
+    <p><strong>Respuesta:</strong> Una VLAN (Virtual LAN) permite segmentar una red física en subredes lógicas independientes, incluso si los dispositivos están conectados al mismo switch.</p>
+    <p><strong>Fragmentos clave:</strong></p>
+    <ul>
+      <li><strong>Seguridad:</strong> Aísla grupos de trabajo, impidiendo el acceso no autorizado.</li>
+      <li><strong>Rendimiento:</strong> Reduce el tráfico innecesario al limitar el dominio de difusión.</li>
+      <li><strong>Organización:</strong> Agrupa dispositivos por departamentos o funciones, sin importar la ubicación física.</li>
+    </ul>
+    <p>Las VLANs son configuradas en switches gestionables y requieren routers o dispositivos de capa 3 para comunicarse entre sí.</p>
+  </section>
+
+  <section>
+    <h2>Módulo 3: Enrutamiento dinámico</h2>
+    <p><strong>Pregunta:</strong> ¿Qué es el enrutamiento dinámico y qué protocolos se utilizan?</p>
+    <p><strong>Respuesta:</strong> El enrutamiento dinámico permite a los routers intercambiar información automáticamente y adaptar sus rutas según los cambios en la red. A diferencia del enrutamiento estático, este no requiere configuración manual constante.</p>
+    <p>Los protocolos más comunes son:</p>
+    <ul>
+      <li><strong>RIP (Routing Information Protocol):</strong> Utiliza la métrica de “saltos”. Simple pero limitado en redes grandes.</li>
+      <li><strong>OSPF (Open Shortest Path First):</strong> Calcula rutas más eficientes con base en el costo del enlace. Escalable y ampliamente utilizado.</li>
+      <li><strong>EIGRP (Enhanced Interior Gateway Routing Protocol):</strong> Propietario de Cisco, combina velocidad de convergencia y estabilidad.</li>
+    </ul>
+    <p>El enrutamiento dinámico mejora la resiliencia de la red frente a caídas o cambios de topología.</p>
+  </section>
+
+  <section>
+    <h2>Módulo 4: Firewalls y control de acceso</h2>
+    <p><strong>Pregunta:</strong> ¿Qué función cumple un firewall en la red?</p>
+    <p><strong>Respuesta:</strong> Un firewall actúa como un filtro entre redes, permitiendo o bloqueando el tráfico de datos según reglas definidas. Es esencial para proteger dispositivos y sistemas de accesos no autorizados.</p>
+    <p>Existen dos tipos principales:</p>
+    <ul>
+      <li><strong>Firewall de software:</strong> Instalado en dispositivos individuales (como Windows Defender Firewall).</li>
+      <li><strong>Firewall de hardware:</strong> Dispositivo dedicado en la entrada de la red que filtra todo el tráfico.</li>
+    </ul>
+    <p>Además, las políticas de control de acceso (ACLs) se usan en routers/switches para definir qué paquetes pueden o no pasar, basándose en IP, puerto o protocolo.</p>
+  </section>
+
+  <section>
+    <h2>Módulo 5: Amenazas comunes y buenas prácticas de seguridad</h2>
+    <p><strong>Pregunta:</strong> ¿Qué amenazas afectan a las redes y cómo prevenirlas?</p>
+    <p><strong>Respuesta:</strong> Las amenazas más frecuentes incluyen:</p>
+    <ul>
+      <li><strong>Malware:</strong> Software malicioso que puede robar o dañar información.</li>
+      <li><strong>Phishing:</strong> Suplantación de identidad para robar datos sensibles.</li>
+      <li><strong>Ataques DDoS:</strong> Sobrecargan servicios con tráfico falso, dejándolos inoperativos.</li>
+      <li><strong>Intercepción de datos:</strong> Captura del tráfico no cifrado por terceros.</li>
+    </ul>
+    <p><strong>Buenas prácticas:</strong></p>
+    <ul>
+      <li>Usar antivirus y actualizaciones constantes.</li>
+      <li>Establecer contraseñas fuertes y cambiarlas periódicamente.</li>
+      <li>Aplicar autenticación multifactor (2FA).</li>
+      <li>Capacitar a los usuarios sobre seguridad informática.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Módulo 6: VPN y conexiones seguras</h2>
+    <p><strong>Pregunta:</strong> ¿Qué es una VPN y cómo protege una red?</p>
+    <p><strong>Respuesta:</strong> Una VPN (Virtual Private Network) crea un túnel cifrado entre el usuario y la red de destino, protegiendo los datos del espionaje y accesos no autorizados.</p>
+    <p>Ventajas clave:</p>
+    <ul>
+      <li><strong>Cifrado:</strong> Toda la información que viaja a través de la VPN está encriptada.</li>
+      <li><strong>Privacidad:</strong> Oculta la IP del usuario, protegiendo su identidad.</li>
+      <li><strong>Acceso remoto:</strong> Permite a empleados conectarse de forma segura a la red de la empresa desde cualquier lugar.</li>
+    </ul>
+    <p>Las VPN son fundamentales en entornos empresariales, especialmente para trabajo remoto y protección de datos confidenciales.</p>
+  </section>
+
+  <section>
+    <h2>Extras del Curso</h2>
+    <ul>
+      <li>Laboratorios virtuales de VLAN, enrutamiento y firewall</li>
+      <li>Ejercicios de configuración avanzada</li>
+      <li>Material de lectura complementaria</li>
+      <li>Simulaciones de ataques y defensa</li>
+      <li>Certificado de finalización</li>
+    </ul>
+  </section>
+
+</body>
+</html>
