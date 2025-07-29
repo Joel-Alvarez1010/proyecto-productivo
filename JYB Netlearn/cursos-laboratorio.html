@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Curso - Laboratorio y Simulaciones | JYB Netlearn</title>
+  <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+
+  <nav>
+    <ul class="navbar">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="cursos.html">Cursos</a></li>
+      <li><a href="acerca-de-nosotros.html">Acerca de Nosotros</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>🔧Curso 4: Laboratorio y Simulaciones⚙️</h1>
+    <h2>Plataforma Educativa JYB Netlearn</h2>
+  </header>
+
+  <section>
+    <h2>Bienvenida</h2>
+    <p>
+      Este curso práctico te permitirá aplicar los conocimientos adquiridos en los cursos anteriores. Utilizarás herramientas de simulación como Cisco Packet Tracer para diseñar, configurar y probar redes reales en entornos virtuales. Aquí aprenderás haciendo, desarrollando habilidades técnicas esenciales para convertirte en un profesional de redes.
+    </p>
+  </section>
+  
+     <div class="contenido-video">
+      <video controls>
+        <source src="Laboratorio.mp4.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de video.
+      </video>
+
+  <section>
+    <h2>Módulo 1: Instalación y configuración de Cisco Packet Tracer</h2>
+    <p><strong>Pregunta:</strong> ¿Cómo instalar y preparar Cisco Packet Tracer?</p>
+    <p><strong>Respuesta:</strong> Cisco Packet Tracer es una herramienta gratuita de simulación de redes desarrollada por Cisco. Para instalarla:</p>
+    <ul>
+      <li>Descarga el instalador desde el sitio oficial de Cisco Networking Academy.</li>
+      <li>Regístrate con una cuenta gratuita de NetAcad.</li>
+      <li>Ejecuta el instalador y sigue los pasos de instalación.</li>
+      <li>Una vez instalado, abre el programa y comienza a crear redes arrastrando dispositivos al espacio de trabajo.</li>
+    </ul>
+    <p>Packet Tracer simula routers, switches, PCs, servidores y más, permitiéndote aprender sin necesidad de hardware físico.</p>
+  </section>
+
+  <section>
+    <h2>Módulo 2: Cableado y conexión física virtual</h2>
+    <p><strong>Pregunta:</strong> ¿Cómo se conectan los dispositivos en una simulación?</p>
+    <p><strong>Respuesta:</strong> En Packet Tracer, puedes usar cables virtuales para conectar equipos:</p>
+    <ul>
+      <li><strong>Cable directo:</strong> Para conectar diferentes dispositivos (por ejemplo, PC a switch).</li>
+      <li><strong>Cable cruzado:</strong> Para conectar dispositivos iguales (por ejemplo, switch a switch o PC a PC).</li>
+      <li><strong>Conexiones inalámbricas:</strong> Para simular redes Wi-Fi con routers y dispositivos móviles.</li>
+    </ul>
+    <p>Una vez conectados, es posible ver el estado de los puertos y realizar configuraciones desde la interfaz gráfica o CLI.</p>
+  </section>
+
+  <section>
+    <h2>Módulo 3: Configuración básica de dispositivos</h2>
+    <p><strong>Pregunta:</strong> ¿Qué configuraciones básicas se realizan en routers y switches?</p>
+    <p><strong>Respuesta:</strong> Las configuraciones más comunes incluyen:</p>
+    <ul>
+      <li>Asignar nombre al dispositivo: <code>hostname</code></li>
+      <li>Establecer contraseña de acceso: <code>enable password</code></li>
+      <li>Configurar interfaces de red: <code>interface FastEthernet0/0</code> y asignar IP</li>
+      <li>Activar interfaces: <code>no shutdown</code></li>
+      <li>Guardar la configuración: <code>copy running-config startup-config</code></li>
+    </ul>
+    <p>Estas configuraciones permiten que los dispositivos se comuniquen y estén listos para tareas de enrutamiento o switching.</p>
+  </section>
+
+  <section>
+    <h2>Módulo 4: Simulación de tráfico y pruebas de conectividad</h2>
+    <p><strong>Pregunta:</strong> ¿Cómo verificar que los dispositivos están conectados correctamente?</p>
+    <p><strong>Respuesta:</strong> Puedes usar comandos como:</p>
+    <ul>
+      <li><code>ping</code>: Verifica la conectividad IP entre dispositivos.</li>
+      <li><code>traceroute</code>: Muestra el camino que sigue un paquete hasta su destino.</li>
+    </ul>
+    <p>Además, Packet Tracer tiene una herramienta visual de simulación donde puedes observar cómo viajan los paquetes, si son aceptados, rechazados o perdidos, lo cual es útil para depuración.</p>
+  </section>
+
+  <section>
+    <h2>Módulo 5: Laboratorios con direccionamiento IP</h2>
+    <p><strong>Pregunta:</strong> ¿Cómo se asignan direcciones IP en una red simulada?</p>
+    <p><strong>Respuesta:</strong> Puedes asignar direcciones IP estáticas o dinámicas (DHCP). En simulaciones básicas, lo más común es:</p>
+    <ul>
+      <li>Asignar IP manualmente a cada PC desde su escritorio en "Configuración IP".</li>
+      <li>Configurar IP en routers o switches de capa 3 desde la terminal usando <code>ip address</code>.</li>
+    </ul>
+    <p>Ejemplo:</p>
+    <pre>
+Router(config)# interface FastEthernet0/0
+Router(config-if)# ip address 192.168.1.1 255.255.255.0
+Router(config-if)# no shutdown
+    </pre>
+    <p>Es importante planear el direccionamiento para evitar conflictos o superposiciones.</p>
+  </section>
+
+  <section>
+    <h2>Módulo 6: Proyecto final – Red simulada completa</h2>
+    <p><strong>Pregunta:</strong> ¿Cómo crear una red simulada desde cero como proyecto de evaluación?</p>
+    <p><strong>Respuesta:</strong> El proyecto final debe incluir:</p>
+    <ul>
+      <li>Una red con al menos dos routers, dos switches y seis PCs.</li>
+      <li>Direcciones IP bien organizadas en subredes.</li>
+      <li>Configuración de interfaces, rutas estáticas o dinámicas.</li>
+      <li>Pruebas de conectividad entre todos los dispositivos.</li>
+      <li>Implementación de seguridad básica: contraseñas, desactivación de servicios innecesarios.</li>
+    </ul>
+    <p>Este proyecto demuestra tu capacidad para diseñar y configurar una red operativa usando simulación.</p>
+  </section>
+
+  <section>
+    <h2>Extras del Curso</h2>
+    <ul>
+      <li>Guías descargables paso a paso</li>
+      <li>Ejercicios prácticos de configuración</li>
+      <li>Escenarios para simulación de errores</li>
+      <li>Plantillas de proyectos .pkt</li>
+      <li>Evaluación automática del rendimiento</li>
+    </ul>
+  </section>
+
+  
+</body>
+</html>
