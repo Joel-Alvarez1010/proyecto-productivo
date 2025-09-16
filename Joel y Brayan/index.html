@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>JYB Netlearn</title>
+    <link rel="stylesheet" href="static/styles.css">
+    
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <header>
+        <div class="logo">JYB Netlearn</div>
+        <nav>
+            <ul id="nav-no-auth">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="cursos.html">Cursos</a></li>
+                <li><a href="acerca-de-nosotros.html">Acerca de Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="#" onclick="mostrarModal('loginModal')">Iniciar Sesión</a></li>
+                <li><a href="#" onclick="mostrarModal('registroModal')">Registrarse</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Saludo usuario -->
+    <div id="saludo-usuario"></div>
+
+    <!-- Sección bienvenida -->
+    <section class="columna derecha">
+        <div class="texto">
+            <h1>Bienvenido a JYB Netlearn</h1>
+            <p>🛸 JYB Netlearn es una plataforma educativa diseñada para enseñar redes de computadores de manera práctica e interactiva. A través de cursos con contenido audiovisual, actividades y simulaciones, los usuarios pueden aprender a su ritmo y desde cualquier lugar.</p>
+            <a href="cursos.html" class="btn">Ver cursos</a>
+        </div>
+        <div class="imagen">
+            <img src="logo.jpg" alt="Logo JYB">
+        </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section class="beneficios">
+        <div class="card">
+            <div>📺</div>
+            <h3>Modalidad 100% virtual</h3>
+            <p>El contenido está disponible las 24 horas del día para que puedas estudiar en tu propio horario.</p>
+        </div>
+        <div class="card">
+            <div>🎓</div>
+            <h3>Certificación con Emblemas</h3>
+            <p>Al finalizar el curso puedes obtener un certificado con validez internacional. <a href="cursos.html">Ver más</a></p>
+        </div>
+        <div class="card">
+            <div>🔑</div>
+            <h3>Acceso ilimitado</h3>
+            <p>Tendrás acceso de por vida a los cursos, materiales y actualizaciones sin costo adicional.</p>
+        </div>
+        <div class="card">
+            <div>🤝</div>
+            <h3>Soporte y acompañamiento</h3>
+            <p>Contarás con un equipo de apoyo que te guiará en el proceso de aprendizaje y resolverá tus dudas.</p>
+        </div>
+    </section>
+
+    <!-- Sección destacada -->
+    <section class="columna izquierda">
+        <div class="texto">
+            <h2>Aprende Redes Paso a Paso</h2>
+            <p>🎯 ¡Empieza hoy a construir tu futuro! En JYB Netlearn, aprender redes es fácil, práctico y está al alcance de todos. No necesitas experiencia, solo ganas de aprender. ¡Conéctate al conocimiento y transforma tu camino!</p>
+            <a href="cursos.html" class="btn">Explorar ahora</a>
+        </div>
+        <div class="imagen">
+            <img src="imagen3.jpg" alt="Curso de redes" />
+        </div>
+    </section>
+
+    <!-- Sección oportunidades -->
+    <section class="columna derecha">
+        <div class="imagen">
+            <img src="popocho.png" alt="Niños aprendiendo">
+        </div>
+        <div class="texto">
+            <h1>Un Futuro con Oportunidades</h1>
+            <p>🚀 Todos los niños y niñas merecen la oportunidad de aprender. Con tu apoyo, podemos derribar las barreras educativas y abrirles un futuro lleno de posibilidades. Únete a esta misión y sé parte del cambio.</p>
+            <a href="acerca-de-nosotros.html" class="btn">Ver cursos</a>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2025 JYB Netlearn - Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Modales y Firebase (igual que los que ya tienes) -->
+    <!-- ... -->
+</body>
+</html>
