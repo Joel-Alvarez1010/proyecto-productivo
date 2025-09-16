@@ -1,0 +1,574 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo general */
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #111;
+  color: #eee;
+  margin: 0;
+  padding: 40px;
+}
+
+/* Espaciado para páginas que NO son index */
+body:not(.index-page) {
+  padding-top: 120px;
+}
+
+/* Para páginas index mantener el estilo original */
+body.index-page {
+  padding-top: 40px;
+}
+
+/* Barra de navegación */
+nav {
+  width: 100%;
+  background-color: #000;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Logo del sitio */
+nav::before {
+  content: "JYB Netlearn";
+  font-size: 24px;
+  font-weight:bold;
+  color: white;
+}
+
+/* Menú de navegación */
+.navbar {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar li a:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Header - para index mantener padding-top original */
+body.index-page header {
+  padding-top: 120px;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+/* Header para otras páginas */
+body:not(.index-page) header {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+/* Estilos para la sección con fondo (como en cursos.html) */
+.seccion-con-fondo {
+  background-color: #222;
+  padding: 60px 8%;
+  text-align: center;
+  border-radius: 15px;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.texto-sobre-imagen {
+  font-size: 3.5em;
+  margin-bottom: 25px;
+  line-height: 1.2;
+  color: #fff;
+}
+
+/* Main content */
+main {
+  padding: 40px 20px;
+}
+
+/* Sección de los cursos */
+.catalogo-cursos {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.catalogo-cursos h2 {
+  font-size: 28px;
+  color: white;
+  margin-bottom: 30px;
+}
+
+/* Contenedor de cursos */
+.cursos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.curso {
+  background-color: #222;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.curso:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+.curso h3 {
+  font-size: 24px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.curso p {
+  font-size: 16px;
+  color: #ddd;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.curso a {
+  text-decoration: none;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.curso a:hover {
+  background-color: #45a049;
+}
+
+/* Sección de características */
+section {
+  margin-bottom: 50px;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 8px;
+}
+
+section h2 {
+  font-size: 28px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+section p {
+  font-size: 18px;
+  color: #ddd;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #000;
+  color: #aaa;
+  margin-top: 50px;
+}
+
+/* Modales */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+  padding: 30px;
+  border-radius: 15px;
+  width: 350px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  position: relative;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.modal-content h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: white;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="email"],
+.modal-content input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2c2c2c;
+  color: #fff;
+  font-size: 14px;
+}
+
+.modal-content input::placeholder {
+  color: #aaa;
+}
+
+.modal-content button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+  background-color: #45a049;
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+.modal-content a {
+  color: #4CAF50;
+  text-decoration: none;
+  font-size: 14px;
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.modal-content a:hover {
+  text-decoration: underline;
+}
+
+.g-form-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+}
+ 
+
+video {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  border-radius: 12px;
+}
+
+.contenido-texto {
+  max-width: 50%;
+}
+
+.contenido-texto h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.contenido-texto p {
+  font-size: 20px;
+  color: #ddd;
+  margin-bottom: 30px;
+}
+
+.boton {
+  padding: 12px 25px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.boton:hover {
+  background-color: #45a049;
+}
+
+.contenido-logo img {
+  max-width: 300px;
+  height: auto;
+  border-radius: 12px;
+}
+
+.seccion-destacada {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111;
+  padding: 100px 10%;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.seccion-destacada .contenido-texto {
+  flex: 1;
+}
+
+.seccion-destacada h2 {
+  font-size: 40px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.seccion-destacada p {
+  font-size: 18px;
+  color: #ddd;
+  margin-bottom: 25px;
+}
+
+.seccion-destacada .boton {
+  padding: 12px 24px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.seccion-destacada .boton:hover {
+  background-color: #45a049;
+}
+
+.contenido-imagen img {
+  max-width: 450px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.beneficios-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.beneficio {
+  background-color: #313131;
+  border-radius: 10px;
+  padding: 20px 25px;
+  width: 300px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.beneficio:hover {
+  transform: translateY(-5px);
+}
+
+.beneficio h3 {
+  color: white;
+  font-size: 18px;
+  margin: 10px 0 8px;
+}
+
+.beneficio p {
+  color: #ddd;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.icono {
+  font-size: 24px;
+  color: #2979ff;
+}
+
+.ver-mas {
+  color: #2979ff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.ver-mas:hover {
+  text-decoration: underline;
+}
+
+.inicio {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111;
+  color: white;
+  padding: 60px 40px;
+  flex-wrap: wrap;
+}
+
+.contenido-texto {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+  padding-right: 40px;
+   margin-left: 100px; 
+}
+
+.contenido-texto h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.contenido-texto p {
+  font-size: 1.3em;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.boton {
+  background-color: #00cc44;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+  background-color: #009933;
+}
+
+.contenido-logo {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+}
+
+.contenido-logo img {
+  max-width: 700px;
+  border-radius: 12px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  body:not(.index-page) {
+    padding: 20px;
+    padding-top: 140px; /* Más espacio en móviles para páginas que no son index */
+  }
+
+  body.index-page {
+    padding: 20px;
+    padding-top: 20px; /* Mantener estilo original para index en móvil */
+  }
+
+  body.index-page header {
+    padding-top: 140px; /* Ajustar header en index para móvil */
+  }
+
+  nav {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .navbar {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navbar li a {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  .cursos-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .curso {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .contenido-texto h1 {
+    font-size: 2.5em;
+  }
+
+  .texto-sobre-imagen {
+    font-size: 2.5em;
+  }
+
+  .catalogo-cursos h2 {
+    font-size: 2.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  body:not(.index-page) {
+    padding: 15px;
+    padding-top: 160px; /* Más espacio en móviles pequeños para páginas que no son index */
+  }
+
+  body.index-page {
+    padding: 15px;
+    padding-top: 15px; /* Mantener estilo original para index en móvil pequeño */
+  }
+
+  body.index-page header {
+    padding-top: 160px; /* Ajustar header en index para móvil pequeño */
+  }
+
+  nav {
+    padding: 10px 15px;
+  }
+
+  .navbar {
+    gap: 10px;
+  }
+
+  .contenido-texto h1 {
+    font-size: 2em;
+  }
+
+  .texto-sobre-imagen {
+    font-size: 2em;
+  }
+
+  .catalogo-cursos h2 {
+    font-size: 1.8em;
+  }
+}
