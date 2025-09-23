@@ -1,0 +1,872 @@
+/* ===== RESETEO Y CONFIGURACIÓN BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #111;
+  color: #eee;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ===== ESPACIADO ESPECÍFICO POR TIPO DE PÁGINA ===== */
+/* Espaciado para páginas que NO son index */
+body:not(.index-page) {
+  padding: 40px;
+  padding-top: 120px;
+}
+
+/* Para páginas index mantener el estilo original */
+body.index-page {
+  padding: 0;
+}
+
+/* Clase para marcar el body del index */
+body {
+  /* Si es index, se aplicarán automáticamente los estilos correspondientes */
+}
+
+/* ===== HEADER Y NAVEGACIÓN ===== */
+/* Header principal - configuración unificada */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #000;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Navegación principal */
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+nav ul li a:hover {
+  background-color: #fff;
+  color: #000;
+  transform: translateY(-2px);
+}
+
+/* Navegación para páginas internas (mantener compatibilidad) */
+.navbar {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li a {
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.navbar li a:hover {
+  background-color: #fff;
+  color: #000;
+  transform: translateY(-2px);
+}
+
+/* Header para páginas internas que usan nav separado */
+body:not(.index-page) nav {
+  width: 100%;
+  background-color: #000;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+body:not(.index-page) nav::before {
+  content: "JYB Netlearn";
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Headers adicionales para páginas internas */
+body:not(.index-page) header:not(:first-child) {
+  position: static;
+  text-align: center;
+  padding: 50px 20px;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* ===== SALUDO USUARIO (solo index) ===== */
+#saludo-usuario {
+  position: fixed;
+  top: 80px;
+  left: 20px;
+  z-index: 999;
+  background: rgba(39, 174, 96, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(39, 174, 96, 0.3);
+}
+
+/* ===== ESPACIADO PRINCIPAL PARA INDEX ===== */
+body.index-page > section:first-of-type {
+  margin-top: 120px;
+}
+
+/* ===== SECCIONES COLUMNA (específico para index) ===== */
+.columna {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  padding: 60px 8%;
+  margin-bottom: 40px;
+  min-height: 60vh;
+  background-color: #222;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.columna.derecha {
+  flex-direction: row;
+}
+
+.columna.izquierda {
+  flex-direction: row-reverse;
+}
+
+.columna .texto {
+  flex: 1;
+  max-width: 600px;
+}
+
+.columna .texto h1,
+.columna .texto h2 {
+  font-size: 3.5em;
+  margin-bottom: 25px;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.columna .texto h2 {
+  font-size: 2.8em;
+}
+
+.columna .texto p {
+  font-size: 1.5em;
+  line-height: 1.6;
+  margin-bottom: 35px;
+  color: #ddd;
+}
+
+.columna .imagen {
+  flex: 1;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.columna .imagen img {
+  width: 100%;
+  max-width: 500px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.columna .imagen img:hover {
+  transform: scale(1.02);
+}
+
+/* ===== SECCIÓN BENEFICIOS ===== */
+.beneficios,
+.beneficios-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 60px 20px;
+  margin-bottom: 40px;
+  background-color: #111;
+}
+
+.beneficios .card,
+.beneficio {
+  width: 280px;
+  padding: 30px 25px;
+  text-align: center;
+  background-color: #313131;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.beneficios .card:hover,
+.beneficio:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.beneficios .card > div:first-child,
+.icono {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 35px;
+  color: #2979ff;
+}
+
+.beneficios .card h3,
+.beneficio h3 {
+  font-size: 20px;
+  margin: 15px 0 12px;
+  color: #fff;
+}
+
+.beneficios .card p,
+.beneficio p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+.beneficios .card p a,
+.ver-mas {
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.beneficios .card p a:hover,
+.ver-mas:hover {
+  color: #45a049;
+  text-decoration: underline;
+}
+
+/* ===== ESTILOS PARA PÁGINAS INTERNAS ===== */
+/* Main content */
+main {
+  padding: 40px 20px;
+}
+
+/* Estilos para la sección con fondo (como en cursos.html) */
+.seccion-con-fondo {
+  background-color: #222;
+  padding: 60px 8%;
+  text-align: center;
+  border-radius: 15px;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.texto-sobre-imagen {
+  font-size: 3.5em;
+  margin-bottom: 25px;
+  line-height: 1.2;
+  color: #fff;
+}
+
+/* Sección de los cursos */
+.catalogo-cursos {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.catalogo-cursos h2 {
+  font-size: 28px;
+  color: white;
+  margin-bottom: 30px;
+}
+
+/* Contenedor de cursos */
+.cursos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.curso {
+  background-color: #222;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.curso:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+.curso h3 {
+  font-size: 24px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.curso p {
+  font-size: 16px;
+  color: #ddd;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.curso a {
+  text-decoration: none;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.curso a:hover {
+  background-color: #45a049;
+}
+
+/* Sección de características */
+section {
+  margin-bottom: 50px;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 8px;
+}
+
+section h2 {
+  font-size: 28px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+section p {
+  font-size: 18px;
+  color: #ddd;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Secciones destacadas */
+.seccion-destacada,
+.inicio {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111;
+  padding: 60px 40px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.seccion-destacada .contenido-texto,
+.contenido-texto {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+  padding-right: 40px;
+}
+
+.inicio .contenido-texto {
+  margin-left: 100px;
+}
+
+.seccion-destacada h2,
+.contenido-texto h1 {
+  font-size: 3em;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.seccion-destacada p,
+.contenido-texto p {
+  font-size: 1.3em;
+  color: #ddd;
+  margin-bottom: 25px;
+  line-height: 1.8;
+}
+
+.contenido-imagen,
+.contenido-logo {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+}
+
+.contenido-imagen img,
+.contenido-logo img {
+  max-width: 450px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Video */
+video {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* ===== BOTONES ===== */
+.btn,
+.boton {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover,
+.boton:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 50px;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #000;
+  color: #aaa;
+  border-radius: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===== MODALES ===== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  position: relative;
+  width: 400px;
+  max-width: 90%;
+  padding: 40px;
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  font-family: 'Helvetica Neue', sans-serif;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-content h2 {
+  font-size: 26px;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #4CAF50;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="email"],
+.modal-content input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #2c2c2c;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.modal-content input::placeholder {
+  color: #aaa;
+}
+
+.modal-content input:focus {
+  background-color: #3c3c3c;
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+.modal-content button {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-content button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+.modal-content a {
+  color: #4CAF50;
+  text-decoration: none;
+  font-size: 14px;
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.modal-content a:hover {
+  text-decoration: underline;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  color: #ff6b6b;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #ff5252;
+}
+
+/* ===== MENSAJES DE ERROR Y ÉXITO ===== */
+.error-message {
+  background: rgba(255, 107, 107, 0.1);
+  color: #ff6b6b;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  text-align: center;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.success-message {
+  background: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  text-align: center;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+/* ===== ALERTAS ===== */
+.alerta {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  z-index: 3000;
+  animation: slideIn 0.3s ease;
+  min-width: 200px;
+  text-align: center;
+}
+
+.alerta.exito {
+  background: linear-gradient(45deg, #4CAF50, #45a049);
+  border: 1px solid #4CAF50;
+}
+
+.alerta.error {
+  background: linear-gradient(45deg, #e74c3c, #ff6b6b);
+  border: 1px solid #e74c3c;
+}
+
+/* ===== UTILIDADES ADICIONALES ===== */
+.g-form-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes slideIn {
+  from { 
+    transform: translateX(100%); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.columna,
+.beneficios {
+  animation: fadeInUp 0.6s ease;
+}
+
+.beneficios .card {
+  animation: fadeInUp 0.6s ease;
+  animation-fill-mode: both;
+}
+
+.beneficios .card:nth-child(1) { animation-delay: 0.1s; }
+.beneficios .card:nth-child(2) { animation-delay: 0.2s; }
+.beneficios .card:nth-child(3) { animation-delay: 0.3s; }
+.beneficios .card:nth-child(4) { animation-delay: 0.4s; }
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  /* Navegación responsive */
+  nav {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  body.index-page header {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .navbar,
+  nav ul {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navbar li a,
+  nav ul li a {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  /* Espaciado responsive */
+  body:not(.index-page) {
+    padding: 20px;
+    padding-top: 140px;
+  }
+
+  body.index-page {
+    padding: 20px;
+  }
+
+  body.index-page > section:first-of-type {
+    margin-top: 140px;
+  }
+
+  body:not(.index-page) header {
+    text-align: center;
+    padding-bottom: 30px;
+  }
+
+  /* Columnas responsive para index */
+  .columna {
+    flex-direction: column !important;
+    text-align: center;
+    padding: 40px 20px;
+    gap: 40px;
+  }
+
+  .columna .texto h1 {
+    font-size: 2.5em;
+  }
+
+  .columna .texto h2 {
+    font-size: 2.2em;
+  }
+
+  .columna .texto p {
+    font-size: 1.2em;
+  }
+
+  .columna .imagen img {
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+  }
+
+  /* Beneficios responsive */
+  .beneficios,
+  .beneficios-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .beneficios .card,
+  .beneficio {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  /* Contenido responsive */
+  .cursos-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .curso {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .contenido-texto h1 {
+    font-size: 2.5em;
+  }
+
+  .texto-sobre-imagen {
+    font-size: 2.5em;
+  }
+
+  .catalogo-cursos h2 {
+    font-size: 2.2em;
+  }
+
+  .inicio .contenido-texto {
+    margin-left: 0;
+  }
+
+  #saludo-usuario {
+    position: static;
+    margin: 10px;
+    text-align: center;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Espaciado para móviles pequeños */
+  body:not(.index-page) {
+    padding: 15px;
+    padding-top: 160px;
+  }
+
+  body.index-page {
+    padding: 15px;
+  }
+
+  body.index-page > section:first-of-type {
+    margin-top: 160px;
+  }
+
+  /* Navegación móvil pequeño */
+  nav,
+  body.index-page header {
+    padding: 10px 15px;
+  }
+
+  .navbar,
+  nav ul {
+    gap: 10px;
+  }
+
+  /* Texto responsive móvil pequeño */
+  .columna .texto h1,
+  .contenido-texto h1 {
+    font-size: 2em;
+  }
+
+  .columna .texto h2 {
+    font-size: 1.8em;
+  }
+
+  .columna .texto p {
+    font-size: 1em;
+  }
+
+  .texto-sobre-imagen {
+    font-size: 2em;
+  }
+
+  .catalogo-cursos h2 {
+    font-size: 1.8em;
+  }
+}

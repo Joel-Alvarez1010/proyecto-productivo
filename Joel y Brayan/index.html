@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>JYB Netlearn</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <header>
+        <div class="container">
+            <div class="logo">JYB Netlearn</div>
+            <nav>
+                <ul id="nav-no-auth">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="cursos.html">Cursos</a></li>
+                    <li><a href="acerca-de-nosotros.html">Acerca de Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="#" onclick="mostrarModal('loginModal')">Iniciar Sesión</a></li>
+                    <li><a href="#" onclick="mostrarModal('registroModal')">Registrarse</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Saludo usuario -->
+    <div id="saludo-usuario"></div>
+
+    <main>
+        <!-- Sección bienvenida -->
+        <section class="columna derecha">
+            <div class="texto">
+                <h1>Bienvenido a JYB Netlearn</h1>
+                <p>🛸 JYB Netlearn es una plataforma educativa diseñada para enseñar redes de computadores de manera práctica e interactiva. A través de cursos con contenido audiovisual, actividades y simulaciones, los usuarios pueden aprender a su ritmo y desde cualquier lugar.</p>
+                <a href="cursos.html" class="btn">Ver cursos</a>
+            </div>
+            <div class="imagen">
+                <img src="logo.jpg" alt="Logo JYB">
+            </div>
+        </section>
+
+        <!-- Beneficios -->
+        <section class="beneficios">
+            <div class="card">
+                <div>📺</div>
+                <h3>Modalidad 100% virtual</h3>
+                <p>El contenido está disponible las 24 horas del día para que puedas estudiar en tu propio horario.</p>
+            </div>
+            <div class="card">
+                <div>🎓</div>
+                <h3>Certificación con Emblemas</h3>
+                <p>Al finalizar el curso puedes obtener un certificado con validez internacional. <a href="cursos.html">Ver más</a></p>
+            </div>
+            <div class="card">
+                <div>🔑</div>
+                <h3>Acceso ilimitado</h3>
+                <p>Tendrás acceso de por vida a los cursos, materiales y actualizaciones sin costo adicional.</p>
+            </div>
+            <div class="card">
+                <div>🤝</div>
+                <h3>Soporte y acompañamiento</h3>
+                <p>Contarás con un equipo de apoyo que te guiará en el proceso de aprendizaje y resolverá tus dudas.</p>
+            </div>
+        </section>
+
+        <!-- Sección destacada -->
+        <section class="columna izquierda">
+            <div class="texto">
+                <h2>Aprende Redes Paso a Paso</h2>
+                <p>🎯 ¡Empieza hoy a construir tu futuro! En JYB Netlearn, aprender redes es fácil, práctico y está al alcance de todos. No necesitas experiencia, solo ganas de aprender. ¡Conéctate al conocimiento y transforma tu camino!</p>
+                <a href="cursos.html" class="btn">Explorar ahora</a>
+            </div>
+            <div class="imagen">
+                <img src="imagen3.jpg" alt="Curso de redes" />
+            </div>
+        </section>
+
+        <!-- Sección oportunidades -->
+        <section class="columna derecha">
+            <div class="imagen">
+                <img src="popocho.png" alt="Niños aprendiendo">
+            </div>
+            <div class="texto">
+                <h1>Un Futuro con Oportunidades</h1>
+                <p>🚀 Todos los niños y niñas merecen la oportunidad de aprender. Con tu apoyo, podemos derribar las barreras educativas y abrirles un futuro lleno de posibilidades. Únete a esta misión y sé parte del cambio.</p>
+                <a href="acerca-de-nosotros.html" class="btn">Ver cursos</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2025 JYB Netlearn - Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Modal de Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal('loginModal')">&times;</span>
+            <h2>Iniciar Sesión</h2>
+            <div class="error-message" id="loginError"></div>
+            <div class="success-message" id="loginSuccess"></div>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Correo electrónico" required>
+                <input type="password" id="loginPassword" placeholder="Contraseña" required>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+            <a href="#" onclick="cambiarModal('loginModal', 'registroModal')">¿No tienes cuenta? Regístrate aquí</a>
+            <a href="#" onclick="recuperarPassword()">¿Olvidaste tu contraseña?</a>
+        </div>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div id="registroModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal('registroModal')">&times;</span>
+            <h2>Crear Cuenta</h2>
+            <div class="error-message" id="registroError"></div>
+            <div class="success-message" id="registroSuccess"></div>
+            <form id="registroForm">
+                <input type="text" id="registroNombre" placeholder="Nombre completo" required>
+                <input type="email" id="registroEmail" placeholder="Correo electrónico" required>
+                <input type="password" id="registroPassword" placeholder="Contraseña" required>
+                <input type="password" id="confirmarPassword" placeholder="Confirmar contraseña" required>
+                <button type="submit">Crear Cuenta</button>
+            </form>
+            <a href="#" onclick="cambiarModal('registroModal', 'loginModal')">¿Ya tienes cuenta? Inicia sesión aquí</a>
+        </div>
+    </div>
+
+    <script>
+        // Variables globales
+        let usuarioActual = null;
+
+        // Funciones para manejar modales
+        function mostrarModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('show');
+                limpiarMensajes();
+            }
+        }
+
+        function cerrarModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('show');
+                limpiarMensajes();
+            }
+        }
+
+        function cambiarModal(modalActual, modalNuevo) {
+            cerrarModal(modalActual);
+            setTimeout(() => {
+                mostrarModal(modalNuevo);
+            }, 300);
+        }
+
+        function limpiarMensajes() {
+            document.querySelectorAll('.error-message, .success-message').forEach(msg => {
+                msg.style.display = 'none';
+                msg.textContent = '';
+            });
+        }
+
+        function mostrarMensaje(elementId, mensaje, esError = false) {
+            const elemento = document.getElementById(elementId);
+            if (elemento) {
+                elemento.textContent = mensaje;
+                elemento.style.display = 'block';
+                
+                // Auto-ocultar después de 5 segundos
+                setTimeout(() => {
+                    elemento.style.display = 'none';
+                }, 5000);
+            }
+        }
+
+        // Cerrar modal al hacer clic fuera de él
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                e.target.classList.remove('show');
+            }
+        });
+
+        // Manejar formulario de login
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                loginForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    const email = document.getElementById('loginEmail').value;
+                    const password = document.getElementById('loginPassword').value;
+
+                    // Validación básica
+                    if (!email || !password) {
+                        mostrarMensaje('loginError', 'Por favor, completa todos los campos', true);
+                        return;
+                    }
+
+                    // Simular proceso de login
+                    setTimeout(() => {
+                        // Credenciales de prueba
+                        if (email === 'admin@jybnetlearn.com' && password === '123456') {
+                            // Login exitoso
+                            usuarioActual = {
+                                nombre: 'Usuario Administrador',
+                                email: email
+                            };
+                            
+                            mostrarMensaje('loginSuccess', '¡Inicio de sesión exitoso!');
+                            
+                            setTimeout(() => {
+                                cerrarModal('loginModal');
+                                actualizarUIUsuarioLogueado();
+                                mostrarAlerta('¡Bienvenido de nuevo!', 'exito');
+                            }, 1500);
+                        } else {
+                            // Error de login
+                            mostrarMensaje('loginError', 'Email o contraseña incorrectos', true);
+                        }
+                    }, 1000);
+                });
+            }
+
+            // Manejar formulario de registro
+            const registroForm = document.getElementById('registroForm');
+            if (registroForm) {
+                registroForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    const nombre = document.getElementById('registroNombre').value;
+                    const email = document.getElementById('registroEmail').value;
+                    const password = document.getElementById('registroPassword').value;
+                    const confirmarPassword = document.getElementById('confirmarPassword').value;
+
+                    // Validaciones
+                    if (!nombre || !email || !password || !confirmarPassword) {
+                        mostrarMensaje('registroError', 'Por favor, completa todos los campos', true);
+                        return;
+                    }
+
+                    if (password !== confirmarPassword) {
+                        mostrarMensaje('registroError', 'Las contraseñas no coinciden', true);
+                        return;
+                    }
+
+                    if (password.length < 6) {
+                        mostrarMensaje('registroError', 'La contraseña debe tener al menos 6 caracteres', true);
+                        return;
+                    }
+
+                    // Validar formato de email
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        mostrarMensaje('registroError', 'Por favor, ingresa un email válido', true);
+                        return;
+                    }
+
+                    // Simular proceso de registro
+                    setTimeout(() => {
+                        mostrarMensaje('registroSuccess', '¡Cuenta creada exitosamente! Ahora puedes iniciar sesión.');
+                        
+                        setTimeout(() => {
+                            cambiarModal('registroModal', 'loginModal');
+                            // Pre-llenar el email en el formulario de login
+                            document.getElementById('loginEmail').value = email;
+                            mostrarAlerta('Cuenta creada exitosamente', 'exito');
+                        }, 1500);
+                    }, 1000);
+                });
+            }
+        });
+
+        // Función para actualizar la UI cuando el usuario está logueado
+        function actualizarUIUsuarioLogueado() {
+            // Actualizar navegación
+            const navNoAuth = document.getElementById('nav-no-auth');
+            if (navNoAuth) {
+                // Ocultar enlaces de login/registro
+                const loginLink = navNoAuth.querySelector('a[onclick*="loginModal"]');
+                const registroLink = navNoAuth.querySelector('a[onclick*="registroModal"]');
+                
+                if (loginLink && registroLink) {
+                    loginLink.style.display = 'none';
+                    registroLink.style.display = 'none';
+                    
+                    // Agregar botón de logout si no existe
+                    let logoutLink = navNoAuth.querySelector('.logout-link');
+                    if (!logoutLink) {
+                        const li = document.createElement('li');
+                        li.innerHTML = '<a href="#" class="logout-link" onclick="cerrarSesion()">Cerrar Sesión</a>';
+                        navNoAuth.appendChild(li);
+                    }
+                }
+            }
+            
+            // Mostrar saludo usuario
+            const saludoUsuario = document.getElementById('saludo-usuario');
+            if (saludoUsuario && usuarioActual) {
+                saludoUsuario.innerHTML = `¡Hola, ${usuarioActual.nombre}!`;
+                saludoUsuario.style.display = 'block';
+            }
+        }
+
+        // Función para cerrar sesión
+        function cerrarSesion() {
+            if (confirm('¿Estás seguro que quieres cerrar sesión?')) {
+                usuarioActual = null;
+                
+                // Restaurar navegación
+                const navNoAuth = document.getElementById('nav-no-auth');
+                if (navNoAuth) {
+                    const loginLink = navNoAuth.querySelector('a[onclick*="loginModal"]');
+                    const registroLink = navNoAuth.querySelector('a[onclick*="registroModal"]');
+                    const logoutLink = navNoAuth.querySelector('.logout-link');
+                    
+                    if (loginLink && registroLink) {
+                        loginLink.style.display = 'block';
+                        registroLink.style.display = 'block';
+                    }
+                    
+                    if (logoutLink) {
+                        logoutLink.parentElement.remove();
+                    }
+                }
+                
+                // Ocultar saludo
+                const saludoUsuario = document.getElementById('saludo-usuario');
+                if (saludoUsuario) {
+                    saludoUsuario.style.display = 'none';
+                }
+                
+                // Limpiar formularios
+                document.getElementById('loginForm').reset();
+                document.getElementById('registroForm').reset();
+                
+                mostrarAlerta('Sesión cerrada exitosamente', 'exito');
+            }
+        }
+
+        // Función para recuperar contraseña
+        function recuperarPassword() {
+            const email = prompt('Ingresa tu email para recuperar la contraseña:');
+            if (email) {
+                alert('Se ha enviado un email de recuperación a: ' + email);
+            }
+        }
+
+        // Función para mostrar alertas
+        function mostrarAlerta(mensaje, tipo = 'exito') {
+            const alerta = document.createElement('div');
+            alerta.className = `alerta ${tipo}`;
+            alerta.textContent = mensaje;
+            
+            document.body.appendChild(alerta);
+            
+            setTimeout(() => {
+                if (alerta.parentNode) {
+                    alerta.parentNode.removeChild(alerta);
+                }
+            }, 4000);
+        }
+
+        // Validación en tiempo real de emails
+        function validarEmail(input) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (input.value && !emailRegex.test(input.value)) {
+                input.style.borderColor = '#ff6b6b';
+            } else {
+                input.style.borderColor = '#e1e8ed';
+            }
+        }
+
+        // Aplicar validación a los inputs de email cuando cargue la página
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailInputs = document.querySelectorAll('input[type="email"]');
+            emailInputs.forEach(input => {
+                input.addEventListener('blur', () => validarEmail(input));
+            });
+        });
+
+        // Función para mostrar/ocultar contraseña (opcional)
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            if (input.type === 'password') {
+                input.type = 'text';
+            } else {
+                input.type = 'password';
+            }
+        }
+    </script>
+
+</body>
+</html>
